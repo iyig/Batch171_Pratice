@@ -1,0 +1,39 @@
+package Homework;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import utilities.TestBase;
+
+public class C07 extends TestBase {
+
+
+    // https://www.bestbuy.com/ sayfasına gidin
+// sayfa Title'ini alın "Best" içerdigini test edin
+// BestBuy logosunun görüntülendigini test edin
+// Canada logosunun görüntülendigini test edin
+
+    @Test
+    public void test01() {
+
+        // https://www.bestbuy.com/ sayfasına gidin
+
+        driver.get("https://www.bestbuy.com/");
+
+        // sayfa Title'ini alın "Best" içerdigini test edin
+
+       String bestBuyTitle= driver.getTitle();
+        String title="Best";
+        Assert.assertTrue(bestBuyTitle.contains("Best"));
+
+
+        // BestBuy logosunun görüntülendigini test edin
+        WebElement bestBuyLogo=driver.findElement(By.xpath("(//img[@class='logo'])[1]"));
+        Assert.assertTrue(bestBuyLogo.isDisplayed());
+
+        // Canada logosunun görüntülendigini test edin
+        WebElement canadaLogosu = driver.findElement(By.xpath("(//img[@alt='Canada'])[1]"));
+        Assert.assertTrue(canadaLogosu.isDisplayed());
+    }
+}
