@@ -1,4 +1,4 @@
-package dau_02;
+package day_02;
 
 import org.junit.Assert;
 import org.junit.Test;
